@@ -9,7 +9,10 @@
 <body>
     <h1>원숭이들의 혁명!</h1>
         <p>rage aginst monkey!</p>
-
+    <form action="" method="get">
+        <input type="text" name="q" value="{{ q }}">
+        <input type="submit" title="검색">
+    </form>
     <ul>
         {% for post in post_list %}
         <li>
