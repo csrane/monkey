@@ -10,25 +10,15 @@
     <h1>원숭이들의 혁명!</h1>
         <p>rage aginst monkey!</p>
 
-    <div>
-        <ul>
-            <li>영장목(PRIMATES)
-            <ul><li><a href="/wiki/%EA%B3%A1%EB%B9%84%EC%9B%90%EB%A5%98" title="곡비원류">곡비원아목</a>(Strepsirrhini) - 여우원숭이류</li>
-            <li><a href="/wiki/%EC%A7%81%EB%B9%84%EC%9B%90%EB%A5%98" title="직비원류">직비원아목</a>(Haplorrhini)
-            <ul><li><a href="/wiki/%EC%95%88%EA%B2%BD%EC%9B%90%EC%88%AD%EC%9D%B4" title="안경원숭이">안경원숭이하목</a>(Tarsiiformes)</li>
-            <li><a href="/wiki/%EC%9B%90%EC%88%AD%EC%9D%B4%ED%95%98%EB%AA%A9" class="mw-redirect" title="원숭이하목">원숭이하목</a>(Simiiformes)
-            <ul><li><b><a href="/wiki/%EA%B4%91%EB%B9%84%EC%9B%90%EB%A5%98" title="광비원류">광비원소목</a></b>(Platyrrhini) - <b>신세계원숭이</b>
-            <ul><li><b><a href="/wiki/%EB%B9%84%EB%8B%A8%EC%9B%90%EC%88%AD%EC%9D%B4%EA%B3%BC" title="비단원숭이과">비단원숭이과</a></b> (Callitrichidae)</li>
-            <li><b><a href="/wiki/%EA%BC%AC%EB%A6%AC%EA%B0%90%EB%8A%94%EC%9B%90%EC%88%AD%EC%9D%B4%EA%B3%BC" title="꼬리감는원숭이과">꼬리감는원숭이과</a></b>(Cebidae)</li>
-            <li><b><a href="/wiki/%EC%98%AC%EB%B9%BC%EB%AF%B8%EC%9B%90%EC%88%AD%EC%9D%B4%EA%B3%BC" class="mw-redirect" title="올빼미원숭이과">올빼미원숭이과</a></b>(Aotidae)</li>
-            <li><b><a href="/wiki/%EC%82%AC%ED%82%A4%EC%9B%90%EC%88%AD%EC%9D%B4%EA%B3%BC" title="사키원숭이과">사키원숭이과</a></b>(Pitheciidae)</li>
-            <li><b><a href="/wiki/%EA%B1%B0%EB%AF%B8%EC%9B%90%EC%88%AD%EC%9D%B4%EA%B3%BC" title="거미원숭이과">거미원숭이과</a></b>(Atelidae)</li></ul></li>
-            <li><a href="/wiki/%ED%98%91%EB%B9%84%EC%9B%90%EB%A5%98" title="협비원류">협비원소목</a>(Catarrhini)
-            <ul><li><b><a href="/wiki/%EA%B8%B4%EA%BC%AC%EB%A6%AC%EC%9B%90%EC%88%AD%EC%9D%B4%EA%B3%BC" class="mw-redirect" title="긴꼬리원숭이과">긴꼬리원숭이상과</a></b>(Cercopithecoidea) - <b>구세계원숭이</b>
-            <ul><li><b><a href="/wiki/%EA%B8%B4%EA%BC%AC%EB%A6%AC%EC%9B%90%EC%88%AD%EC%9D%B4%EA%B3%BC" class="mw-redirect" title="긴꼬리원숭이과">긴꼬리원숭이과</a></b>(Cercopithecidae)</li></ul></li>
-            <li><a href="/wiki/%EC%9C%A0%EC%9D%B8%EC%9B%90" title="유인원">사람상과</a>(Hominoidea) - 유인원
-            <ul><li><a href="/wiki/%EA%B8%B4%ED%8C%94%EC%9B%90%EC%88%AD%EC%9D%B4" title="긴팔원숭이">긴팔원숭이과</a>(Hylobatidae)</li>
-            <li><a href="/wiki/%EC%82%AC%EB%9E%8C%EA%B3%BC" title="사람과">사람과</a>(Hominidae) - 사람, 고릴라, 침팬지, 오랑우탄.</li></ul></li></ul></li></ul></li></ul></li></ul></li></ul>
-    </div>
+    <ul>
+        {% for post in post_list %}
+        <li>
+            {{ post.id }}
+            {{ post.title }}
+            <small>by {{ post.author }}</small>
+            <small>at {{ post.up_datedat }}</small>
+        </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
