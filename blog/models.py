@@ -26,5 +26,8 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ['-id'] #기본정렬 순서 지정 
+
     def __str__(self):
         return self.title
