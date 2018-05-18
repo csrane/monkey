@@ -1,7 +1,7 @@
 #blog/admin.py
 from django.contrib import admin
 from django.utils.html import mark_safe
-from .models import Post
+from .models import Post, Comment
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -33,3 +33,7 @@ class PostAdmin(admin.ModelAdmin):
         updated_count = queryset.update(status='w')
         self.message_user(request, '{}건의 포스팅을 Withdrawn 상태로 변경했습니다.'.format(updated_count))
     make_withdrawn.short_description = '지정포스팅 숨김'
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    pass
