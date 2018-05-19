@@ -1,5 +1,6 @@
 #blog/models.py
 import re
+from django.conf import settings
 from django.forms import ValidationError
 from django.db import models
 
@@ -15,7 +16,7 @@ class Post(models.Model):
         ('w', 'Withdrawn'),
     )
 
-    author = models.CharField(max_length=20, verbose_name = '작성자') 
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
     title = models.CharField(max_length=100, verbose_name = '제목', help_text = "제목을 입력하시오. 최대 100자 내외")
     content = models.TextField(verbose_name = '내용')
     tags = models.CharField(max_length=100, blank=True)
@@ -30,6 +31,7 @@ class Post(models.Model):
     class Meta:
         ordering = ['-id'] #기본정렬 순서 지정 
 
+
     def __str__(self):
         return self.title
 
@@ -40,6 +42,7 @@ class Comment(models.Model):
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
 
 
 class Tag(models.Model):
