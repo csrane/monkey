@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls import include,url
 from django.contrib import admin
-from django.shortcuts import redirect
+from django.shortcuts import redirect, resolve_url
 
 # def root(request):
     # return redirect('blog:post_list')
