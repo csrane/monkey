@@ -1,23 +1,54 @@
 {% extends "blog/layout.html" %}
 
 {% block content %}
-<h1>원숭이들의 혁명!</h1>
-<p>rage aginst monkey!</p>
-<form action="" method="get">
-<input type="text" name="q" value="{{ q }}">
-<input type="submit" title="검색">
-</form>
-<ul>
-{% for post in post_list %}
-<li>
-    {{ post.id }}
-    <a href="{% url "blog:post_detail" post.id %}">
-            {{ post.title }}
-    </a>
-    <small>by {{ post.author }}</small>
-    <small>at {{ post.up_datedat }}</small>
-</li>
-{% endfor %}
-</ul>
+<div class="container">
+    <div class="jumbotron">
+        <h1>We Are The 9MONKEYS <sup>by 멍키바나나</sup></h1>
+        <p>자유는 바나나보다 값지다</p>
+        <p>
+            <a class="btn btn-lg btn-primary" href="http://www.new9.co.kr">
+            몽키스 랜드 &raquo;
+            </a>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-info">
+                <ul>
+                <li>http://localhost:8000/blog/ 주소로 접속해보세요.</li>
+                <li>템플릿 경로를 blog/templates/post_list.html 경로가 아닌
+                blog/ templates/blog/post_list.html 경로를 쓰는 지에 대한 이유는,
+                후에 Template Loader에서 설명합니다.</li>
+                </ul>
+            </div>
+            <p>
+                <form action="" method="get">
+                    <input type="text" name="q" value="{{ q }}">
+                    <input type="submit" title="검색" class="btn btn-primary">
+                </form>
+            </p>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Updated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in post_list %}
+                    <tr>
+                        <td>{{ post.id }}</td>
+                        <td><a href="{% url "blog:post_detail" post.id %}">{{ post.title }}</td>
+                        <td><small>by {{ post.author }}</small></td>
+                        <td><small>at {{ post.up_datedat }}</small></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
