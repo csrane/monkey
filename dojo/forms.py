@@ -8,4 +8,13 @@ def min_length_3_validator(value):
 
 class PostForm(forms.Form):
     title = forms.CharField(validators=[min_length_3_validator])
-    contents = forms.CharField(widget=forms.Textarea)
+    content = forms.CharField(widget=forms.Textarea)
+
+    # ModelForm.save 인터페이스 흉내 구현
+    '''
+    def Save(self, commit=True):
+        post = Post(**self.cleaned_data)
+        if commit:
+            post.save()
+        return post
+    '''
