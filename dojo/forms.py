@@ -1,5 +1,6 @@
 #dojo/forms.py
 from django import forms
+from .models import Post
 
 def min_length_3_validator(value):
     if len(value) < 3:
@@ -11,10 +12,8 @@ class PostForm(forms.Form):
     content = forms.CharField(widget=forms.Textarea)
 
     # ModelForm.save 인터페이스 흉내 구현
-    '''
-    def Save(self, commit=True):
+    def save(self, commit=True):
         post = Post(**self.cleaned_data)
         if commit:
             post.save()
-        return post
-    '''
+        return post 
