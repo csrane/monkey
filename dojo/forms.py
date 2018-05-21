@@ -1,6 +1,6 @@
 #dojo/forms.py
 from django import forms
-from .models import Post
+from .models import GameUser, Post
 
 
 
@@ -19,3 +19,12 @@ class PostForm(forms.ModelForm):
             self.instance.save()
         return post 
     '''
+
+class GameUserSigupForm(forms.ModelForm):
+    class Meta:
+        model = GameUser
+        fields = '__all__'
+
+    def clean_username(self):
+        return self.cleaned_data.get('username', '').strip()
+

@@ -3,8 +3,20 @@ import os
 from django.conf import settings
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from .forms import PostForm
+from .forms import PostForm, GameUserSigupForm
 from .models import Post
+
+def create_user(request):
+    if request.method == 'POST':
+        form = GameUserSigupForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save()
+            return redirect('/dojo')
+    else:
+        form = GameUserSigupForm
+    return render(request, 'dojo/user_form.html', {
+        'form' : form,
+    })
 
 def post_new(request):
     if request.method == 'POST':
