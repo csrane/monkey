@@ -1,14 +1,58 @@
+<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-WuViQmTamrPyvMFZjf8te7HpKtdxuzV/HX1yG26a0d8yieIBr+beDf1ME99iX1cM" crossorigin="anonymous">
 
-<form action="" method="POST">
-    {% csrf_token %}
-    
-    <table>
-        {{ form.as_table }}
-    </table>
-    <input type="submit" />
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <form action="" method="POST">
+                <legend>Post Form</legend>
+                <div class="form-group">
+                    {% csrf_token %}
 
+                    {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                    
+                    {% for field in form.hidden_fields %}
+                        {{ field }}
+                    {% endfor %}
+
+                    {% for field in form.visible_fields %}
+                    <div class="form-group">
+                        
+                        <div class="col-sm-10 row">
+                            {{ field.label_tag }}
+                            <div class="col-sm-10">
+                            {{ field }}
+                            </div>
+
+                            {% if field.help_text %}
+                            <p class="help-block">{{ field.help_text }}</p>
+                            {% endif %}
+                            
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary" />Submit</button>
+                </div>      
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script>
+    $(function() {
+        $('.form-group label').addClass('col-sm-2 col-form-label');
+        $('.form-group input, .form-group textarea').addClass('form-control');
+        });
     var dom = document.getElementById('{{ form.user_agent.id_for_label }}');
     dom.value = navigator.userAgent
 </script>
