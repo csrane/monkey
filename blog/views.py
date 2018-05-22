@@ -12,6 +12,7 @@ def post_list(request):
     if q:
         qs = qs.filter(title__icontains=q)
 
+
     return render(request, 'blog/post_list.html', {
         'post_list' : qs,
         'q' : q,
