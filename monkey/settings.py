@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'accounts',
     'blog',
-    'dojo',
+    'dojo', 
     'shop',
     
 ]
@@ -132,6 +132,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'monkey', 'static'),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 INTERNAL_IPS = ['127.0.0.1']
 
