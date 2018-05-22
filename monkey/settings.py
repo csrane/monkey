@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django_extensions',
     'accounts',
     'blog',
-    'dojo', 
+    'dojo',
+    'imagekit', 
     'shop',
     
 ]

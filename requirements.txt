@@ -3,3 +3,6 @@ django-debug-toolbar
 django-extensions
 ipython[notebook]
 django-bootstrap4
+pilkit
+requests
+django-imagekit
