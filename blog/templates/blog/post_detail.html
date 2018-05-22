@@ -1,5 +1,6 @@
 {% extends "blog/layout.html" %}
 
+
 {% block title %}
     {{ post.title }}
 {% endblock %}
@@ -13,7 +14,8 @@
             <!-- <img src="/media/{{ post.photo }}" style="max-width: 100%">  -->
             
             {% if post.photo  %}
-                <img src="{{ post.photo.url }}" style="max-width: 100%">
+                <!-- <img src="{{ post.photo.url }}" style="max-width: 100%"> -->
+                <img src="{{ post.photo_thumbnail.url }}" style="max-width: 100%">
             {% endif %}
             <p>{{ post.content | linebreaks}}</p>
         
