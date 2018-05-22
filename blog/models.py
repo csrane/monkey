@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.forms import ValidationError
 from django.db import models
-from imagekit.models import ImageSpecField
+from imagekit.models import ProcessedImageField
 from imagekit.processors import Thumbnail
 
 
@@ -23,11 +23,11 @@ class Post(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='blog_post_set')
     title = models.CharField(max_length=100, verbose_name = '제목', help_text = "제목을 입력하시오. 최대 100자 내외")
     content = models.TextField(verbose_name = '내용')
-    photo = models.ImageField(blank=True, upload_to='blog/post/%Y/%m/%d' )
-    photo_thumbnail = ImageSpecField(source='photo',
-                                    processors=[Thumbnail(300,300)],
-                                    format='JPEG',
-                                    options={'qualit':60})
+    photo = ProcessedImageField(blank=True, upload_to='blog/post/%Y/%m/%d',
+                                processors=[Thumbnail(300,300)],
+                                format='JPEG',
+                                options={'quality': 60} )
+
 
     tags = models.CharField(max_length=100, blank=True)
     lnglat = models.CharField(max_length=50, blank=True, 
