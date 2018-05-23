@@ -6,6 +6,12 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .forms import PostForm, GameUserSigupForm
 from .models import Post
 
+def post_detail(request, id):
+    post = get_object_or_404(Post, id=id)
+    return render(request, 'dojo/post_detail.html', {
+        'post' : post,
+    })
+
 def create_user(request):
     if request.method == 'POST':
         form = GameUserSigupForm(request.POST, request.FILES)
