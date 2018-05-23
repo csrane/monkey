@@ -2,7 +2,7 @@
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
-from .foms import SignupForm
+from .forms import SignupForm
 
 
 def signup(request):
