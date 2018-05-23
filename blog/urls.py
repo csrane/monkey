@@ -5,10 +5,11 @@ from . import views_cbv
 
 urlpatterns = [
     url(r'^$', views_cbv.post_list, name='post_list'),
-    url(r'^detail/(?P<id>\d+)/$', views.post_detail, name='post_detail'),
+    url(r'^detail/(?P<pk>\d+)/$', views_cbv.post_detail, name='post_detail'),
 
     url(r'^new/$', views.post_new, name='post_new'),
     url(r'^(?P<id>\d+)/edit/$', views.post_edit, name='post_edit'),
 
     url(r'^cbv/new/$', views_cbv.post_new),
-]
+    url(r'^cbv/(?P<pk>\d+)/edit/$', views_cbv.post_edit),
+]   

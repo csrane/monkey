@@ -1,20 +1,12 @@
 from django import forms
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from .models import Post
 
 
 post_list = ListView.as_view(model=Post, paginate_by=10)
 
-#blog.forms.py 가 있다 가정
-class PostForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        fields = '__all__' 
+post_detail = DetailView.as_view(model=Post)
 
+post_new = CreateView.as_view(model=Post)
 
-class PostCreatView(CreateView):
-    model = Post
-    form_class = PostForm
-
-
-post_new = PostCreatView.as_view()
+post_edit = UpdateView.as_view(model=Post, fields='__all__')
