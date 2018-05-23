@@ -145,3 +145,5 @@ from django.contrib.messages import constants
 
 MESSAGE_LEVEL = constants.DEBUG
 MESSAGE_TAGS = { constants.ERROR : 'danger'}
+
+NAVER_CLIENT_ID = '8rSfT2Wu72TJDt4GHUMm'
