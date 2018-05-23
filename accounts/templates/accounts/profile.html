@@ -4,7 +4,9 @@
     <h2>{{ user }}'s profile</h2>
     <ul>
         <li>username : {{ user.username }}</li>
-        <li>user email : {{ user.email }}</li>
+        <li>email : {{ user.email }}</li>
+        <li>is_staff : {{ user.is_staff }}</li>
+        <li>is_superuser : {{ user.is_superuser }}</li>
         <li>date joined : {{ user.date_joined }}</li>
     </ul>
 {% endblock %}
