@@ -8,7 +8,7 @@ from .forms import PostForm, GameUserSigupForm
 from .models import Post
 
 
-post_detail = DetailView.as_view(model=Post, pk_url_kwarg='id')
+post_detail = DetailView.as_view(model=Post)
 
 def create_user(request):
     if request.method == 'POST':
