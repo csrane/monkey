@@ -43,9 +43,16 @@
                     {% for post in post_list %}
                     <tr>
                         <td>{{ post.id }}</td>
-                        <td><a href="{% url "blog:post_detail" post.id %}">{{ post.title }}</td>
+                        <td>
+                            <a href="{% url "blog:post_detail" post.id %}">{{ post.title }}
+                            {% for tag in post.tag_set.all %}
+                                <span class="label label-info">{{ tag.name }}</span>
+                            {% endfor %}
+                        </td>
                         <td><small>by {{ post.author }}</small></td>
                         <td><small>at {{ post.up_datedat }}</small></td>
+                        
+                        <!-- <td>{{ post.comment_set.all }}</td> -->
                     </tr>
                     {% endfor %}
                 </tbody>
