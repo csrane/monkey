@@ -6,7 +6,7 @@ from .models import Post, Comment
 from .forms import PostForm
 
 def post_list(request):
-    qs = Post.objects.all()
+    qs = Post.objects.prefetch_related('tag_set').all()
 
     q = request.GET.get('q', '')
     if q:

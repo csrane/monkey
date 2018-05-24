@@ -46,7 +46,7 @@
                         <td>
                             <a href="{% url "blog:post_detail" post.id %}">{{ post.title }}
                             {% for tag in post.tag_set.all %}
-                                <span class="label label-info">{{ tag.name }}</span>
+                                <span class="badge badge-light">{{ tag.name }}</span>
                             {% endfor %}
                         </td>
                         <td><small>by {{ post.author }}</small></td>
